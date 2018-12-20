@@ -7,8 +7,8 @@ This module lets you practice:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Paige Swango.
+"""  # : 1.DONE PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 import math
@@ -40,7 +40,7 @@ def main():
 def run_test_generate_points_on_circle():
     """ Tests the   generate_points_on_circle   function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  generate_points_on_circle  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test (that YOU write).
     #
@@ -70,7 +70,13 @@ def run_test_generate_points_on_circle():
     # -------------------------------------------------------------------------
     # Test 2:  (YOU write THIS test)
     # -------------------------------------------------------------------------
-
+    # Test 1:
+    expected = [rg.Point(150, 300),  # All numbers are approximate.
+                rg.Point(100,350),
+                rg.Point(50,300),
+                rg.Point(100,250)]
+    circle = rg.Circle(rg.Point(100, 300), 50)
+    answer = generate_points_on_circle(circle, 4)
 
 def generate_points_on_circle(circle_for_points, number_of_points_to_generate):
     """
@@ -178,6 +184,14 @@ def run_test_draw_points_on_circle():
     # -------------------------------------------------------------------------
     # Test 4:  (YOU write THIS test)
     # -------------------------------------------------------------------------
+    circle.attach_to(window)
+    points = generate_points_on_circle(circle,number_of_points)
+    for k in range(number_of_points):
+        c = rg.Circle(points[k],10)
+        c.fill_color = color
+        c.attach_to(window)
+        points[k].attach_to(window)
+    window.render()
 
 
 def draw_points_on_circle(window, circle, number_of_points, color):
