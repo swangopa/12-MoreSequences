@@ -184,15 +184,12 @@ def run_test_draw_points_on_circle():
     # -------------------------------------------------------------------------
     # Test 4:  (YOU write THIS test)
     # -------------------------------------------------------------------------
-    circle.attach_to(window)
-    points = generate_points_on_circle(circle,number_of_points)
-    for k in range(number_of_points):
-        c = rg.Circle(points[k],10)
-        c.fill_color = color
-        c.attach_to(window)
-        points[k].attach_to(window)
-    window.render()
 
+    title = 'DRAW_POINTS_ON_CIRCLE, test 3:  7 yellow dots.'
+    window = rg.RoseWindow(400, 400, title)
+    circle = rg.Circle(rg.Point(300, 200), 200)
+    draw_points_on_circle(window, circle, 20, 'blue')
+    window.close_on_mouse_click()
 
 def draw_points_on_circle(window, circle, number_of_points, color):
     """
@@ -239,7 +236,14 @@ def draw_points_on_circle(window, circle, number_of_points, color):
     #
     # Your professor may do this exercise with you as "live coding".
     # -------------------------------------------------------------------------
-
+    circle.attach_to(window)
+        points = generate_points_on_circle(circle, number_of_points)
+    for k in range(len(points)):
+        c = rg.Circle(points[k], 10)
+        c.fill_color = color
+        c.attach_to(window)
+        points[k].attach_to(window)
+    window.render()
 
 def run_test_pizza():
     """ Tests the   pizza   function. """
@@ -287,7 +291,11 @@ def run_test_pizza():
     #     -- a large number of thin black lines
     #     -- on a yellow-filled circle.
     # -------------------------------------------------------------------------
-
+    window = rg.RoseWindow(300, 600)
+    circle = rg.Circle(rg.Point(100, 300), 100)
+    circle.outline_thickness = 4
+    pizza(window, circle, 12, 'green', 10)
+    window.close_on_mouse_click()
 
 def pizza(window, circle, number_of_slices, color, thickness):
     """
